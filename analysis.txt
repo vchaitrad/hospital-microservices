@@ -1,0 +1,28 @@
+ANALYSIS
+
+1. Response time: Average response time was 42.90 ms at 1 concurrent request and
+   45.03 ms at 2. It rose to 57.29 ms at 4, then increased sharply to 128.08 ms
+   at 8 and 220.45 ms at 16.
+
+2. Throughput: Throughput increased from 23.29 req/s at 1 request to 69.37 req/s
+   at 4 requests. After that it stayed around 61-70 req/s (61.24 at 8 and 69.66
+   at 16). This shows the application reached its saturation point at about
+   4 concurrent requests.
+
+3. Failures: There were 0 failed requests at all five workload levels, so the
+   application stayed stable but became slower.
+
+4. Resource usage: The doctor-service used the most CPU at every level
+   (36.35% at 1 request, rising to about 67-69% from 4 requests onward), because
+   it performs the CPU-heavy availability check. The appointment-service used
+   moderate CPU (13.53% to 23.85%) and the patient-service used the least
+   (3.14% to 5.82%). Memory stayed almost constant for all three containers
+   (about 50-60 MB), so memory was not affected by load.
+
+5. Performance degradation: Once the doctor-service CPU reached its limit at about
+   4 concurrent requests, extra requests had to wait. Throughput stopped
+   growing, so the extra load only increased waiting time and response time.
+
+CONCLUSION: Increasing the workload raises response time while throughput
+saturates. The doctor-service is the bottleneck of this application.
+Memory is stable, and no requests failed.

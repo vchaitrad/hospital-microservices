@@ -1,0 +1,31 @@
+services:
+  appointment-service:
+    build: ./appointment-service
+    container_name: appointment-service
+    ports:
+      - "5000:5000"
+    environment:
+      - PATIENT_URL=http://patient-service:5001
+      - DOCTOR_URL=http://doctor-service:5002
+    depends_on:
+      - patient-service
+      - doctor-service
+    networks:
+      - hospital-net
+  patient-service:
+    build: ./patient-service
+    container_name: patient-service
+    ports:
+      - "5001:5001"
+    networks:
+      - hospital-net
+  doctor-service:
+    build: ./doctor-service
+    container_name: doctor-service
+    ports:
+      - "5002:5002"
+    networks:
+      - hospital-net
+networks:
+  hospital-net:
+    driver: bridge

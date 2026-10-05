@@ -1,0 +1,6 @@
+workload,concurrency,avg_response_ms,throughput_rps,failed,appointment_cpu_pct,appointment_mem_mb,patient_cpu_pct,patient_mem_mb,doctor_cpu_pct,doctor_mem_mb
+W1,1,42.9,23.29,0,13.53,59.72,3.14,49.91,36.35,51.04
+W2,2,45.03,44.21,0,20.67,59.4,5.16,50.09,57.61,51.08
+W3,4,57.29,69.37,0,22.65,59.19,5.82,49.92,66.86,51.13
+W4,8,128.08,61.24,0,23.85,59.29,5.77,50.16,68.81,51.0
+W5,16,220.45,69.66,0,22.83,59.59,5.64,49.95,67.47,51.15
