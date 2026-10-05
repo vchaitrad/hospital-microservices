@@ -243,5 +243,4 @@ To stop everything:
 - [x] Performance graphs
 - [x] Brief analysis and conclusion
 
-## 14. Note
-The measured values above come from the author's machine. Anyone running this should run `load-test/loadtest.py` on their own computer and use their own measured results.
+
